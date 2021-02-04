@@ -11,15 +11,9 @@ namespace NumberGuesser
         // Static - no instances refers to func itself
         static void Main(string[] args)
         {
-            GetAppInfo(); // run func to get user info
+            GetAppInfo(); // run func for app info
 
-            // ask user for name
-            Console.WriteLine("What is your name?");
-            
-            // get user input
-            string userName = Console.ReadLine();
-
-            Console.WriteLine("Hello {0}, let's play a game...", userName);
+            GreetUser(); // Ask user name & greet
 
             while (true) {
 
@@ -101,6 +95,7 @@ namespace NumberGuesser
 
         }
 
+        // get and display app info
         static void GetAppInfo()
         {
             // set app vars
@@ -117,6 +112,18 @@ namespace NumberGuesser
 
             // reset clr - makes the rest of the text white again
             Console.ResetColor();
+        }
+
+        // get user name and make greeting
+        static void GreetUser()
+        {
+            // ask user for name
+            Console.WriteLine("What is your name?");
+
+            // get user input
+            string userName = Console.ReadLine();
+
+            Console.WriteLine("Hello {0}, let's play a game...", userName);
         }
     }
 }
