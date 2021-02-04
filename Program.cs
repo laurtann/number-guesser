@@ -39,14 +39,8 @@ namespace NumberGuesser
                     // make sure input is number
                     if (!int.TryParse(userInput, out guess))
                     {
-                        // change text clr
-                        Console.ForegroundColor = ConsoleColor.Green;
-
-                        // tell user wrong input type
-                        Console.WriteLine("Please input a number");
-
-                        // reset clr - makes the rest of the text white again
-                        Console.ResetColor();
+                        // print error msg
+                        PrintColorMessage(ConsoleColor.Red, "Please enter a number");
 
                         //keep going
                         continue;
@@ -58,26 +52,13 @@ namespace NumberGuesser
                     // match guess to correct num
                     if (guess != correctNumber)
                     {
-                        // change text clr
-                        Console.ForegroundColor = ConsoleColor.Green;
-
-                        // tell user wrong guess
-                        Console.WriteLine("Wrong number, please try again");
-
-                        // reset clr - makes the rest of the text white again
-                        Console.ResetColor();
+                        // print error msg
+                        PrintColorMessage(ConsoleColor.Red, "Wrong number, please try again");
                     }
                 }
 
                 // output success msg
-                // change text clr
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                // tell user wrong guess
-                Console.WriteLine("Correct!");
-
-                // reset clr - makes the rest of the text white again
-                Console.ResetColor();
+                PrintColorMessage(ConsoleColor.Green, "Correct!");
 
                 // ask to play again
                 Console.WriteLine("Play again? (Y or N)");
@@ -96,8 +77,7 @@ namespace NumberGuesser
         }
 
         // get and display app info
-        static void GetAppInfo()
-        {
+        static void GetAppInfo() {
             // set app vars
             string appName = "Number Guesser";
             string appVersion = "1.0.0";
@@ -115,8 +95,7 @@ namespace NumberGuesser
         }
 
         // get user name and make greeting
-        static void GreetUser()
-        {
+        static void GreetUser() {
             // ask user for name
             Console.WriteLine("What is your name?");
 
@@ -124,6 +103,17 @@ namespace NumberGuesser
             string userName = Console.ReadLine();
 
             Console.WriteLine("Hello {0}, let's play a game...", userName);
+        }
+
+        static void PrintColorMessage(ConsoleColor color, string message) {
+            // change text clr
+            Console.ForegroundColor = color;
+
+            // tell user wrong input type
+            Console.WriteLine(message);
+
+            // reset clr - makes the rest of the text white again
+            Console.ResetColor();
         }
     }
 }
