@@ -89,7 +89,6 @@ namespace NumberGuesser
             // app info
             Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
 
-
             // reset clr - makes the rest of the text white again
             Console.ResetColor();
         }
